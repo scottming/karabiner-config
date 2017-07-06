@@ -48,7 +48,7 @@
                         ]
                     },
                     {
-                        "description": "Change capslock_command+hjkl to arrow keys",
+                        "description": "Change caps_lock+hjkl to arrow keys",
                         "manipulators": [
                             {
                                 "from": {
