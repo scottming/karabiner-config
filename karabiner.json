@@ -93,7 +93,7 @@
             ]
           },
           {
-            "description": "ctrl+b -> left, ctrl+f -> forward, ctrl+n -> down, ctrl+p -> up",
+            "description": "ctrl+b -> left, ctrl+f -> forward, ctrl+n -> down(except terminal apps), ctrl+p -> up(except terminal apps), ctrl+alt+f/b -> alt+left/right(for terminal apps), ctrl+alt+f/b -> ctrl+left/right(for warp)",
             "manipulators": [
               {
                 "conditions": [
@@ -200,7 +200,6 @@
                 "conditions": [
                   {
                     "bundle_identifiers": [
-                      "^dev.warp.Warp-Stable",
                       "^org.alacritty",
                       "^com.googlecode.iterm2"
                     ],
@@ -226,7 +225,6 @@
                 "conditions": [
                   {
                     "bundle_identifiers": [
-                      "^dev.warp.Warp-Stable",
                       "^org.alacritty",
                       "^com.googlecode.iterm2"
                     ],
@@ -244,6 +242,50 @@
                   {
                     "key_code": "left_arrow",
                     "modifiers": ["left_option"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^dev.warp.Warp-Stable"],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow",
+                    "modifiers": ["left_ctrl"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["^dev.warp.Warp-Stable"],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow",
+                    "modifiers": ["left_ctrl"]
                   }
                 ],
                 "type": "basic"
